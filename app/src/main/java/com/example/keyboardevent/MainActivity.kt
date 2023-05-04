@@ -18,7 +18,6 @@ import com.example.keyboardevent.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         val insetsWithKeyboardCallback = InsetsWithKeyboardCallback(window)
         ViewCompat.setOnApplyWindowInsetsListener(binding.rootId, insetsWithKeyboardCallback)
         ViewCompat.setWindowInsetsAnimationCallback(binding.rootId, insetsWithKeyboardCallback)
-        
+
         val insetsWithKeyboardAnimationCallback = InsetsWithKeyboardAnimationCallback(binding.button)
         ViewCompat.setWindowInsetsAnimationCallback(binding.button, insetsWithKeyboardAnimationCallback)
 
