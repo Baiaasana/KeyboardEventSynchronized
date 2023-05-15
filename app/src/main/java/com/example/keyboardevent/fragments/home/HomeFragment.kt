@@ -2,16 +2,16 @@ package com.example.keyboardevent.fragments.home
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.core.view.ViewCompat
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.Fragment
 import com.example.keyboardevent.animationUtils.animation_for_view.InsetsWithKeyboardAnimationCallback
 import com.example.keyboardevent.animationUtils.animation_for_view.InsetsWithKeyboardCallback
 import com.example.keyboardevent.databinding.FragmentBlankBinding
+import com.example.keyboardevent.fragments.bottom_sheet.BottomSheetDialogFragment
 
 class HomeFragment : Fragment() {
 
@@ -21,7 +21,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentBlankBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -30,19 +30,27 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         listeners()
-        setUpKeyboard()
-        
+//        setUpKeyboard()
+
     }
 
-    private fun setUpKeyboard(){
+    private fun setUpKeyboard() {
         val insetsWithKeyboardCallback = InsetsWithKeyboardCallback(requireActivity().window)
         ViewCompat.setOnApplyWindowInsetsListener(binding.rootId2, insetsWithKeyboardCallback)
         ViewCompat.setWindowInsetsAnimationCallback(binding.rootId2, insetsWithKeyboardCallback)
 
-        val insetsWithKeyboardAnimationCallback = InsetsWithKeyboardAnimationCallback(binding.button)
-        val insetsWithKeyboardAnimationCallback2 = InsetsWithKeyboardAnimationCallback(binding.btnBottomSheetDialog)
-        ViewCompat.setWindowInsetsAnimationCallback(binding.button, insetsWithKeyboardAnimationCallback)
-        ViewCompat.setWindowInsetsAnimationCallback(binding.btnBottomSheetDialog, insetsWithKeyboardAnimationCallback2)
+        val insetsWithKeyboardAnimationCallback =
+            InsetsWithKeyboardAnimationCallback(binding.button)
+        val insetsWithKeyboardAnimationCallback2 =
+            InsetsWithKeyboardAnimationCallback(binding.btnBottomSheetDialog)
+        ViewCompat.setWindowInsetsAnimationCallback(
+            binding.button,
+            insetsWithKeyboardAnimationCallback
+        )
+        ViewCompat.setWindowInsetsAnimationCallback(
+            binding.btnBottomSheetDialog,
+            insetsWithKeyboardAnimationCallback2
+        )
 //        showSoftKeyboard(binding.input)
     }
 
@@ -52,9 +60,15 @@ class HomeFragment : Fragment() {
         imm?.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
     }
 
-    private fun listeners(){
+//    private fun listeners(){
+//        binding.btnBottomSheetDialog.setOnClickListener {
+//            findNavController().navigate(HomeFragmentDirections.actionBlankFragmentToBottomSheetDialogFragment())
+//        }
+//    }
+
+    private fun listeners() {
         binding.btnBottomSheetDialog.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionBlankFragmentToBottomSheetDialogFragment())
+            BottomSheetDialogFragment().show(parentFragmentManager, "BottomSheetDialog")
         }
     }
 

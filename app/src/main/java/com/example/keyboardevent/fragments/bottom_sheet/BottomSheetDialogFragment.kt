@@ -23,11 +23,8 @@ class BottomSheetDialogFragment : BottomSheetDialogFragment() {
     }
 
     override fun onStart() {
+        binding.input.requestFocus()
         super.onStart()
-        view?.post {
-            binding.input.requestFocus()
-            dialog?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
-        }
     }
 
     override fun onCreateView(
@@ -35,13 +32,13 @@ class BottomSheetDialogFragment : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentBottomSheetDialogBinding.inflate(inflater, container, false)
-        dialog?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
         return binding.root
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val bottomSheetDialog =
             super.onCreateDialog(savedInstanceState)
+        bottomSheetDialog.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
         if (bottomSheetDialog is BottomSheetDialog) {
             bottomSheetDialog.behavior.skipCollapsed = true
             bottomSheetDialog.behavior.state = BottomSheetBehavior.STATE_EXPANDED
