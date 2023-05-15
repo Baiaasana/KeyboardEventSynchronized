@@ -1,18 +1,14 @@
-package com.example.keyboardevent
+package com.example.keyboardevent.activities
 
 import android.os.Build
 import android.os.Bundle
-import android.view.KeyEvent
-import android.view.View
-import android.widget.Button
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.OnApplyWindowInsetsListener
 import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsAnimationCompat
 import androidx.core.view.WindowInsetsAnimationCompat.*
-import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat.*
+import com.example.keyboardevent.animationUtils.animation_for_view.InsetsWithKeyboardAnimationCallback
+import com.example.keyboardevent.animationUtils.animation_for_view.InsetsWithKeyboardCallback
 import com.example.keyboardevent.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

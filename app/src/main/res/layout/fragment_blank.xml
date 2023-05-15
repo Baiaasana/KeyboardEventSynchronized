@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:id="@+id/root_id_2"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".BlankFragment">
+    tools:context=".fragments.home.HomeFragment">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
@@ -21,6 +21,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnBottomSheetDialog"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="20dp"
+        android:background="@android:color/holo_blue_light"
+        android:padding="20dp"
+        android:text="Bottom Sheet Dialog"
+        android:textColor="@color/white"
+        android:textColorHint="@android:color/darker_gray"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintStart_toStartOf="@+id/button" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/input"

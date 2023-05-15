@@ -1,4 +1,4 @@
-package com.example.keyboardevent
+package com.example.keyboardevent.animationUtils.animation_for_view
 
 import android.os.Build
 import android.view.View
